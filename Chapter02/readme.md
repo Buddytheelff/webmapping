@@ -595,6 +595,7 @@ Note that `$(this)` inside of the loop selects the current element. You need not
         //remove the event listener
         $('table').off('click', clickme);
 
+**Note: Try functions above one by one, or the last `.off()` function will turn off all event listeners.**  
 
 > ### **Use the jQuery `.attr()`, `.css()`, and `.on()` methods to add properties and events to the HTML elements on your webpage.**
 
