@@ -514,7 +514,7 @@ Keep in mind that while many of these tilesets are open, some (such as MapBox an
 
 ### II. Visualizing Thematic Data
 
-In Chapter 3, we discussed how to format GeoJSON data, which we also use for your first Leaflet map. For this chapter, you can choose to **use provided sample data (NYC Taxi Data)** or **find a spatiotemporal dataset of your interests** (more detailed requirements are list in the optional section below). 
+In Chapter 3, we discussed how to format GeoJSON data, which we also use for your first Leaflet map. For this chapter, you can choose to **use provided sample data (NYC Taxi Data)** or **find a spatiotemporal dataset of your interests** (more detailed requirements are listed in the optional section below). 
 
 The [NYC Taxi Dataset](https://www.kaggle.com/c/nyc-taxi-trip-duration/data) is a subset of Kaggle dataset and contains 5 attributes other than coordinates. 
 * FIELD1: ID of the order
