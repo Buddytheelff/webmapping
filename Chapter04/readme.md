@@ -519,7 +519,7 @@ In Chapter 3, we discussed how to format GeoJSON data, which we also use for you
 The [NYC Taxi Dataset](https://www.kaggle.com/c/nyc-taxi-trip-duration/data) is a subset of Kaggle dataset and contains 5 attributes other than coordinates. 
 * FIELD1: ID of the order
 * pickup_datetime: Pick-up date and time in `YYYY:MM:DD hh:mm` format
-* dropoff_datetime: Drop-off date and time in `YYYY:MM:DD` hh:mm` format
+* dropoff_datetime: Drop-off date and time in `YYYY:MM:DD hh:mm` format
 * passenger_count: the number of passengers in the vehicle (driver entered value)
 * trip_duration: duration of the trip in seconds
 
