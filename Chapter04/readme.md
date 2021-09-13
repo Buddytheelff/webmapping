@@ -531,13 +531,15 @@ Finding data can be one of the most difficult and time-consuming tasks of any ma
 
 Once you have found data you want to use for the assignment, format it as a spreadsheet with each feature a row and each attribute a column, and include columns with a unique id for each feature, the feature name, latitude, and longitude. Then, convert your dataset into GeoJSON format.
 
-> ### **Find and format your own thematic, sequential point data containing at least 15 point features and at least 7 sequential attribute columns. Convert your dataset to a GeoJSON file and add it to a Leaflet map in _main.js_.**
+> ### Visualize _pickup_sample.geojson_ on maps and feel free to make any customizations.
+> ### **Optional: Find and format your own thematic, sequential point data containing at least 15 point features and at least 7 sequential attribute columns. Convert your dataset to a GeoJSON file and add it to a Leaflet map in _main.js_.**
 
 ## Activity 5
 
 1.  Create a GitHub repository called _unit-2_. As you build your Leaflet map, commit each major change to your code as often as necessary.
-2.  Replace the link to _adaptedTutorial.js_ with a link to your _main.js_ file in _index.html_ and start building your custom Leaflet map for the lab assignment using the data you found. Use the code from _adaptedTutorial.js_ to use as an initial building block for _main.js_. Be sure to keep _quickstartTutorial.js, geojsonTutorial.js,_ and _adaptedTutorial.js_ in your _js_ folder for review!
-3.  With all of the above tasks completed, commit your changes and sync with GitHub. Include "Activity 5" in the commit message. The repo should include four JS files: _quickstartTutorial.js, geojsonTutorial.js, adaptedTutorial.js_, and _main.js_. The _index.html_ file should link to just _main.js_ to map the GeoJSON file containing your spatiotemporal data.
+2.  Replace the link to _adaptedTutorial.js_ with a link to your _main.js_ file in _index.html_ and start building your custom Leaflet map for the lab assignment using the data you found or provided. Use the code from _adaptedTutorial.js_ to use as an initial building block for _main.js_. Be sure to keep _quickstartTutorial.js, geojsonTutorial.js,_ and _adaptedTutorial.js_ in your _js_ folder for review!
+3.  Submit a zipfile to Canvas. The file should include four JS files: _quickstartTutorial.js, geojsonTutorial.js, adaptedTutorial.js_, and _main.js_. The _index.html_ file should link to just _main.js_ to map the GeoJSON file containing your spatiotemporal data.
+4.  **Optional: **With all of the above tasks completed, commit your changes and sync with GitHub. Include "Activity 5" in the commit message. The repo should include four JS files: _quickstartTutorial.js, geojsonTutorial.js, adaptedTutorial.js_, and _main.js_. The _index.html_ file should link to just _main.js_ to map the GeoJSON file containing your spatiotemporal data.
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
