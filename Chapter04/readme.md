@@ -512,27 +512,35 @@ Keep in mind that while many of these tilesets are open, some (such as MapBox an
 
 > ### **Browse the tilesets on the [Leaflet Providers preview page](https://leaflet-extras.github.io/leaflet-providers/preview/) to familiarize yourself with what is publicly available.**
 
-### II. Finding Thematic Data
+### II. Visualizing Thematic Data
 
-In Chapter 3, we discussed how to format GeoJSON data, which we also use for your first Leaflet map. However, first you need to _find_ spatiotemporal data on a topic that interests you or use the dataset privided (a sample dataset of NYC Taxi Pickups).
+In Chapter 3, we discussed how to format GeoJSON data, which we also use for your first Leaflet map. For this chapter, you can choose to **use provided sample data (NYC Taxi Data)** or **find a spatiotemporal dataset of your interests**. 
 
-Finding data can be one of the most difficult and time-consuming tasks of any mapping project. Below are some useful resources for finding data. This list is not meant to be exhaustive; many governments, agencies, and non-government organizations maintain their own websites for data access that are not included below.
+The [NYC Taxi Dataset](https://www.kaggle.com/c/nyc-taxi-trip-duration/data) is a subset of Kaggle dataset and contains 5 attributes other than coordinates. 
+* FIELD1: ID of the order
+* pickup_datetime: Pick-up date and time in `YYYY:MM:DD hh:mm` format
+* dropoff_datetime: Drop-off date and time in `YYYY:MM:DD` hh:mm` format
+* passenger_count: the number of passengers in the vehicle (driver entered value)
+* trip_duration: duration of the trip in seconds
 
-*   [**The Robinson Map and Data Library**](https://geography.wisc.edu/maplibrary/) at UW-Madison stores over a terabyte of data related to Wisconsin and provides links to many more data sources under its "Collections" menu. As a student of UW-Madison, you can also access staff assistance to help you find what you are looking for. Use the library's [data request form](https://geography.wisc.edu/maplibrary/gis-data-request-form/) to get assistance.
-    
-*   [**Data.gov**](http://www.data.gov/) is a clearinghouse of data sources for data produced by U.S. Government agencies. It has a user-friendly interface with powerful search tools.
-    
-*   [**American FactFinder**](http://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) is the U.S. Census tool for finding demographic data about U.S. populations. This website is the portal to a vast warehouse of data and can be challenging to work with. Use the "Guided Search" tool to get started. The data is provided as non-spatial tables, but can be related to Census geographies in GIS software through geographic id codes.
-    
-*   [**UN Data**](http://data.un.org/) is a clearinghouse of global and country data produced by United Nations agencies and member countries. It includes economic, demographic, environmental, transportation, society, and other datasets.
-    
-*   [**The World Bank**](http://data.worldbank.org/) maintains web access to its expansive database of economic, demographic, environmental, and human development data. Their focus is obviously on economic indicators, but this is a good place to look for health, education, and greenhouse gas emissions data by country as well.
-    
+**If you choose to find your own dataset, please follow the following instructions:**
+> Finding data can be one of the most difficult and time-consuming tasks of any mapping project. Below are some useful resources for finding data. This list is not meant to be exhaustive; many governments, agencies, and non-government organizations maintain their own websites for data access that are not included below.
 
-Once you have found data you want to use for the assignment, format it as a spreadsheet with each feature a row and each attribute a column, and include columns with a unique id for each feature, the feature name, latitude, and longitude. Then, convert your dataset into GeoJSON format.
+> 1   [**The Robinson Map and Data Library**](https://geography.wisc.edu/maplibrary/) at UW-Madison stores over a terabyte of data related to Wisconsin and provides links to many more data sources under its "Collections" menu. As a student of UW-Madison, you can also access staff assistance to help you find what you are looking for. Use the library's [data request form](https://geography.wisc.edu/maplibrary/gis-data-request-form/) to get assistance.
+    
+> 2   [**Data.gov**](http://www.data.gov/) is a clearinghouse of data sources for data produced by U.S. Government agencies. It has a user-friendly interface with powerful search tools.
+    
+> 3   [**American FactFinder**](http://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) is the U.S. Census tool for finding demographic data about U.S. populations. This website is the portal to a vast warehouse of data and can be challenging to work with. Use the "Guided Search" tool to get started. The data is provided as non-spatial tables, but can be related to Census geographies in GIS software through geographic id codes.
+    
+> 3   [**UN Data**](http://data.un.org/) is a clearinghouse of global and country data produced by United Nations agencies and member countries. It includes economic, demographic, environmental, transportation, society, and other datasets.
+    
+> 4   [**The World Bank**](http://data.worldbank.org/) maintains web access to its expansive database of economic, demographic, environmental, and human development data. Their focus is obviously on economic indicators, but this is a good place to look for health, education, and greenhouse gas emissions data by country as well.
+    
+> Once you have found data you want to use for the assignment, format it as a spreadsheet with each feature a row and each attribute a column, and include columns with a unique id for each feature, the feature name, latitude, and longitude. Then, convert your dataset into GeoJSON format.
 
-> ### Visualize [_pickup_sample.geojson_](./pickup_sample.geojson) on maps and feel free to make any customizations.
-> ### **Optional: Find and format your own thematic, sequential point data containing at least 15 point features and at least 7 sequential attribute columns. Convert your dataset to a GeoJSON file and add it to a Leaflet map in _main.js_.**
+**Visualize [_pickup_sample.geojson_](./pickup_sample.geojson) on maps and feel free to make any customizations.**
+
+Optional: Find and format your own thematic, sequential point data containing at least 15 point features and at least 7 sequential attribute columns. Convert your dataset to a GeoJSON file and add it to a Leaflet map in _main.js_.
 
 ## Activity 5
 
