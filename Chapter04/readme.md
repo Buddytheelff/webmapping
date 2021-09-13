@@ -514,7 +514,7 @@ Keep in mind that while many of these tilesets are open, some (such as MapBox an
 
 ### II. Finding Thematic Data
 
-In Chapter 3, we discussed how to format GeoJSON data, which we also use for your first Leaflet map. However, first you need to _find_ spatiotemporal data on a topic that interests you.
+In Chapter 3, we discussed how to format GeoJSON data, which we also use for your first Leaflet map. However, first you need to _find_ spatiotemporal data on a topic that interests you or use the dataset privided (a sample dataset of NYC Taxi Pickups).
 
 Finding data can be one of the most difficult and time-consuming tasks of any mapping project. Below are some useful resources for finding data. This list is not meant to be exhaustive; many governments, agencies, and non-government organizations maintain their own websites for data access that are not included below.
 
@@ -531,7 +531,7 @@ Finding data can be one of the most difficult and time-consuming tasks of any ma
 
 Once you have found data you want to use for the assignment, format it as a spreadsheet with each feature a row and each attribute a column, and include columns with a unique id for each feature, the feature name, latitude, and longitude. Then, convert your dataset into GeoJSON format.
 
-> ### Visualize _pickup_sample.geojson_ on maps and feel free to make any customizations.
+> ### Visualize [_pickup_sample.geojson_](./pickup_sample.geojson) on maps and feel free to make any customizations.
 > ### **Optional: Find and format your own thematic, sequential point data containing at least 15 point features and at least 7 sequential attribute columns. Convert your dataset to a GeoJSON file and add it to a Leaflet map in _main.js_.**
 
 ## Activity 5
