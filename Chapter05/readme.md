@@ -12,7 +12,7 @@ Congratulations on making your first interactive web map with Leaflet last chapt
 
 After this chapter, you should be able to:
 
-*   Create proportional symbols on your Leaflet map based on the spatiotemporal data
+*   Create proportional symbols on the Leaflet map based on the spatiotemporal data (MegaCities.geojson)
 *   Implement _pan_, _zoom_, and _retrieve_ with styled popups
 *   _Sequence_ through the spatiotemporal data with step and slider UI controls
 
@@ -826,6 +826,10 @@ A common calculation on slippy maps is distance and area measurement, which can 
 ###### Figure 4.7: Leaflet Draw plugin example
 
 ## Activity 6
+
+**Activity 6 is all based on `MegaCities.geojson`, you don't need to use `NYC Taxi Dataset` or your own datasets.**
+
+**If you have trouble with Chapter 4, you can download completed version of the folder from [Chapter 04 Solutions](https://github.com/geohai/webmapping/blob/master/Chapter04/Chapter_04_Solutions.zip) and start Chapter 5 on the clean folder.**
 
 1.  Implement styled _retrieve_ popups.
 2.  Implement the _sequence_ operator with a slider and step buttons.
