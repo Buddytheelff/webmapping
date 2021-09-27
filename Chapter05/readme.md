@@ -5,25 +5,25 @@ Chapter 5: Dynamic Mapping with Leaflet
 
 Congratulations on making your first interactive web map with Leaflet last chapter! Chapter 5 continues to build on Chapter 4 by introducing Leaflet interaction operators. Chapter 5 includes four lessons and ends with Activity 6 requiring you to implement _pan_, _zoom_, _retrieve_, and _sequence_ on scaled proportional symbols.
 
-*   In Lesson 1, we introduce pseudocoding in support of scaling your proportional point symbols to your spatiotemporal dataset.
+*   In Lesson 1, we introduce pseudocoding in support of scaling the proportional point symbols to the spatiotemporal dataset.
 *   In Lesson 2, we introduce the _pan_, _zoom_, and _retrieve_ operators that are well-supported in Leaflet.
-*   In Lesson 3, we describe the more involved process for implementing the _sequence_ controls to view your spatiotemporal data.
+*   In Lesson 3, we describe the more involved process for implementing the _sequence_ controls to view the spatiotemporal data.
 *   In Lesson 4, we provide some background for implementing the remaining interaction operators introduced in class in a Leaflet slippy map. This material is <ins>_for your reference only_</ins>, as only _pan_, _zoom_, _retrieve_, and _sequence_ are included in the Activity 6. However, we encourage you to return to this lesson as you develop more complex interactive maps.
 
 After this chapter, you should be able to:
 
-*   Create proportional symbols on your Leaflet map based on your spatiotemporal data
+*   Create proportional symbols on your Leaflet map based on the spatiotemporal data
 *   Implement _pan_, _zoom_, and _retrieve_ with styled popups
-*   _Sequence_ through your spatiotemporal data with step and slider UI controls
+*   _Sequence_ through the spatiotemporal data with step and slider UI controls
 
 Lesson 1: Making Leaflet Layers Dynamic
 ---------------------------------------
 
 ### I. Pseudocoding
 
-For Activity 5, you used the Leaflet `pointToLayer` function to convert the point features in your custom GeoJSON file into circle markers placed atop a slippy basemap of your choice. While this code uses the _spatial_ data in your GeoJSON, it does not yet utilize the _temporal_ sequence of _attributes_ you collected for your Leaflet map.
+For Activity 5, you used the Leaflet `pointToLayer` function to convert the point features in the GeoJSON file into circle markers placed atop a slippy basemap. While this code uses the _spatial_ data in GeoJSON, it does not yet utilize the _temporal_ sequence of _attributes_ for the Leaflet map.
 
-The next step in developing your Leaflet map is to scale dynamically the radius of those circle markers based on your GeoJSON file, turning them into proportional symbols that represent the attribute data through the visual variable size. Although we continue to work with the _MegaCities.geojson_ dataset in the following examples, you should apply these instructions to your own dataset.
+The next step in developing the Leaflet map is to scale dynamically the radius of those circle markers based on `MegaCities.geojson` file, turning them into proportional symbols that represent the attribute data through the visual variable size. 
 
 Before starting on the proportional symbols, take a second to think through the task at hand. ***Pseudocoding*** describes the higher-level outlining of computational steps necessary to perform the task. Pseudocoding before coding clarifies the logic behind potential coding solutions, breaking down big, abstract problems into small, manageable pieces. You then can use the console to confirm that your code is "working" at each of these smaller stages to reduce unexpected bugs. Example 1.1 provides one possible pseudocoding outline for implementing proportional symbols; as with all programming, there always are a number of sometimes equally viable pseudocoded solutions for achieving a goal.
 
@@ -40,6 +40,8 @@ Before starting on the proportional symbols, take a second to think through the 
 
 
 Note that in the pseudocode above, we already have accomplished the first three steps in Chapter 4. Thus, we can assess that we are about half way to completing the proportional symbol scaling. Accordingly, pseudocoding also helps to assess workload and progress on a development project, such as your final project.
+
+**To follow the tutorial example, please copy your chapter 4 folder and make your `index.html` linked to `adaptedTutorial.js`. The following exmamples will make customizations on `adaptedTutorial.js`.** 
 
 As we complete the remaining three steps, we leave our pseudocode in our script as comments describing the tasks within it.
 
@@ -92,7 +94,7 @@ Step 4 of our pseudocode determines the attribute for scaling the proportional s
         var attribute = "Pop_2015";
 
 
-Step 5 is a little trickier, iterating through each feature in your GeoJSON to get its value for the `Pop_2015` attribute. The `pointToLayer` anonymous function already iterates through each feature to turn the marker into a circle. Thus, we can determine the value of each feature's `Pop_2015` attribute within the `pointToLayer` function (Example 1.4).
+Step 5 is a little trickier, iterating through each feature in the GeoJSON to get its value for the `Pop_2015` attribute. The `pointToLayer` anonymous function already iterates through each feature to turn the marker into a circle. Thus, we can determine the value of each feature's `Pop_2015` attribute within the `pointToLayer` function (Example 1.4).
 
 ###### Example 1.4: Accessing each feature's `Pop_2015` value in _main.js_
 
@@ -235,14 +237,14 @@ The areas of the circles on the map are now proportional to our data (Figure 1.2
 
 ###### Figure 1.2: Leaflet map with circle markers scaled into proportional symbols
 
-> ### **Using your own data, create proportional symbols based on one of the attributes in the dataset.**
+> ### **Using the spatio-temporal data (MegaCities.geojson), create proportional symbols based on one of the attributes in the dataset.**
 
 Lesson 2: Zoom, Pan, and Retrieve Interactions
 ----------------------------------------------
 
 ### I. Zoom and Pan Operators
 
-With the proportional symbols correctly scaling based on your GeoJSON file, we now can make your slippy map interactive! The first two of these operators—_zoom_ and _pan_—are automatically implemented by default on any Leaflet map. **_Zoom_** describes a change in map scale, typically accompanied with a change in map detail, and ***pan*** describes a change in the map centering.
+With the proportional symbols correctly scaling based on the GeoJSON file, we now can make your slippy map interactive! The first two of these operators—_zoom_ and _pan_—are automatically implemented by default on any Leaflet map. **_Zoom_** describes a change in map scale, typically accompanied with a change in map detail, and ***pan*** describes a change in the map centering.
 
 The _zoom_ operator has a high level of flexibility by default in Leaflet: it can be performed with the zoom control buttons on the map, with a mouse wheel, by pinching on a touch-enabled device, by double-clicking on the map, by holding the Shift key while clicking and dragging the mouse across the map (i.e., a rubberband zoom), or by using the + and - buttons on a keyboard. However, the zoom operator has limited freedom, constrained to 20 interlocking scales with the current scale defined by Leaflet's the `zoom` property introduced last chapter. The strategy of 20 preset scales enables a tileset to approximate a user experience of a "map of everywhere", as each additional scale would require additional processing and storage.
 
@@ -292,7 +294,7 @@ You already used Leaflet popups within the `onEachFeature` function in the [_Usi
     };
     
     //Add circle markers for point features to the map
-    function createPropSymbols(data, map){
+    function createPropSymbols(data){
         //create a Leaflet GeoJSON layer and add it to the map
         L.geoJson(data, {
             pointToLayer: pointToLayer
@@ -334,7 +336,7 @@ The popup content has the class name `leaflet-popup-content`, so we can use this
 You also may want to offset the popup based on its `radius` so that it does not cover the proportional symbol when activated, inhibiting reading of the original symbol size (Example 2.4). Do not offset it too far, however, as you will lose graphic association between the information window and the selected feature (Figure 2.3).
 
 ###### Example 2.4: Adding an offset to each circle marker
-
+        // add following code in your pointToLayer function, and remove the old bindPopup function.
         layer.bindPopup(popupContent, {
             offset: new L.Point(0,-options.radius) 
         });
@@ -344,7 +346,7 @@ You also may want to offset the popup based on its `radius` so that it does not 
 
 ###### Figure 2.3: A vertically offset popup
 
-> ### **Implement styled _retrieve_ popups for the features on your Leaflet map.**
+> ### **Implement styled _retrieve_ popups for the features on the Leaflet map.**
 
 Lesson 3: Sequence Interaction
 ------------------------------
@@ -399,7 +401,7 @@ Step 1 in the pseudocode is creating a slider widget. For now, we can place our 
 
     <body>    
         <div id="map"</div>
-        <div id="panel"</div>
+        <div id="panel"></div>
 
 Next, specify the position of the `#panel` relative to the `#map` using CSS in _style.css_ (Example 3.4). Note that this type of a panel also can be used for the _retrieve_ operator is an information panel is preferred over a information window due to a large amount of detail content.
 
@@ -409,16 +411,16 @@ Next, specify the position of the `#panel` relative to the `#map` using CSS in _
         height: 400px;    
         width: 80%;
         display: inline-block;
-        }
+        };
         
-        #panel {    
+    #panel {    
             width: 16%;    
             padding: 20px;
             display: inline-block;
             vertical-align: top;
             text-align: center;
             line-height: 42px;
-        }
+        };
 
 It makes sense to start a new function called `createSequenceControls()` for creating our sequence controls. Since the controls need access to the GeoJSON data, call the `createSequenceControls()` function from within the AJAX callback (Example 3.5). Within the function, we can make a simple slider using an HTML `<input>` element with the `type` attribute set to [`range`](http://www.w3schools.com/jsref/dom_obj_range.asp). We also give it a class name `range-slider` to access the slider in our stylesheet and with jQuery.
 
@@ -436,7 +438,7 @@ It makes sense to start a new function called `createSequenceControls()` for cre
         $.ajax("data/MegaCities.geojson", {
             dataType: "json",
             success: function(response){
-                minValue = calcMinValue(response);            
+                minValue = calculateMinValue(response);            
                 //add symbols and UI elements
                 createPropSymbols(response);
                 createSequenceControls();
@@ -452,7 +454,8 @@ Besides setting the `type` attribute to `range`, we also need to give our slider
 
         //Example 3.5...create range input element (slider)
         $('#panel').append('<input class="range-slider" type="range">');
-    
+        
+        // add into createSequenceControls() function
         //set slider attributes
         $('.range-slider').attr({
             max: 6,
@@ -503,29 +506,27 @@ Finally, we can adjust the _sequence_ UI styles to make the controls more usable
         vertical-align: top;  
         text-align: center;  
         line-height: 42px;  
-    }  
+    };  
     
     .range-slider {  
         width: 55%;  
-    }  
+    }; 
     
     .step {  
         width: 20%;  
-    }  
+    };  
     
     .step img {  
         width: 100%;  
-    }  
-
-
-​    
+    };  
+   
     #forward {  
         float: right;  
-    }  
+    };  
     
     #reverse {  
         float: left;  
-    }
+    };
 
 Figure 3.3 shows the styled _sequence_ UI controls.
 
@@ -533,7 +534,7 @@ Figure 3.3 shows the styled _sequence_ UI controls.
 
 ###### Figure 3.3: Final slider and step buttons
 
-> ### **In your _main.js_ script, create a slider and step buttons for sequencing your Leaflet map.**
+> ### **In your _main.js_ script, create a slider and step buttons for sequencing the Leaflet map.**
 
 ### III. Changing Attributes
 
@@ -554,7 +555,7 @@ Step 3 of our _sequence_ pseudocode creates an array to hold all of the attribut
         });
 
 
-We then create and return the array within the `processData()` function. Start with an empty array, then loop through the attribute names from the `properties` object of the first feature in the dataset, and push each attribute name that contains the characters `"Pop"` into our array. Your dataset likely uses other attributes keys than those in _MegaCities.geojson_, perhaps only a given year (e.g., `"1985"` instead of `"Pop_1985")`, so reformat your attribute keys to include a common prefix string for each of the attributes you wish to include in the spatiotemporal sequence. After successfully building the array, `return` the array to the callback function (Example 3.11).
+We then create and return the array within the `processData()` function. Start with an empty array, then loop through the attribute names from the `properties` object of the first feature in the dataset, and push each attribute name that contains the characters `"Pop"` into our array. When doing your final project, your dataset likely uses other attributes keys than those in _MegaCities.geojson_, perhaps only a given year (e.g., `"1985"` instead of `"Pop_1985")`, so reformat your attribute keys to include a common prefix string for each of the attributes you wish to include in the spatiotemporal sequence. After successfully building the array, `return` the array to the callback function (Example 3.11).
 
 ###### Example 3.11: Building the attributes array in _main.js_
 
@@ -684,7 +685,9 @@ Note that in Example 3.16, we implemented Step 7 in our pseudocode using simplif
 Step 9 of our pseudocode reassigns the current attribute based on the new index and Step 10 finally resizes our proportional symbols according to the newly assigned attribute. We can accomplish both tasks by defining a new `updatePropSymbols()` function to update the symbols and passing it the `attributes` array value at the new index as a  parameter (Example 3.17). Call this function at the end of _both_ the button `click` handler and the slider `input` handler.
 
 ###### Example 3.17: Calling a function to update the proportional symbols in _main.js_
-
+            //Step 8: update slider
+            $('.range-slider').val(index);
+            
             //Called in both step button and slider event listener handlers
             //Step 9: pass new attribute to update symbols
             updatePropSymbols(attributes[index]);
@@ -705,6 +708,7 @@ Within the `updatePropSymbols()` function, we can use Leaflet's `L.map() eachLay
 
 
 Finally, we update each circle marker's radius based on the new attribute values and update the popup content with the new data (Example 3.19).
+Also remember to update your `createSequenceControls(attributes)`function (add `attributes` as input).
 
 ###### Example 3.19: Resetting each circle marker's radius and popup in _main.js_
 
@@ -825,8 +829,9 @@ A common calculation on slippy maps is distance and area measurement, which can 
 
 1.  Implement styled _retrieve_ popups.
 2.  Implement the _sequence_ operator with a slider and step buttons.
-3.  Commit the changes to your _unit-2_ directory and sync with GitHub. Include "Activity 6" in the commit message (Summary). Your assignment will be graded based on what is contained in this commit.
-4.  Zip a copy of your _unit-2_ repo and upload to the Activity 6 dropbox as a backup.
+3.  Zip a copy of your _unit-2_ folder and upload it to Canvas. The folder should include the `index.html`, `main.js` in the `js`folder, `style.css` in the `css` folder, _leaflet_ and _jQuery_ library in your `lib` folder, `MegaCities.geojson` in the `data` folder, and two _images_ in the `img` folder.
+4.  **Optional: ** Commit the changes to your _unit-2_ directory and sync with GitHub. Include "Activity 6" in the commit message (Summary). Your assignment will be graded based on what is contained in this commit.
+
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
