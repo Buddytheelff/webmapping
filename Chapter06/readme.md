@@ -3,7 +3,7 @@
 Chapter 6: The Internal Logic of Leaflet
 =======================================
 
-Your Leaflet map should be coming along nicely after the Chapter 5 overview of interactions. In Chapter 6, we dive deeper into Leaflet's inner workings to introduce you to some advanced web programming concepts. Chapter 6 includes three lessons and culminates in the completion of your Leaflet map.
+Your Leaflet map should be coming along nicely after the Chapter 5 overview of interactions. In Chapter 6, we dive deeper into Leaflet's inner workings to introduce you to some advanced web programming concepts. **For this chapter, you should copy the Chapter 5's folder and continue working on those files.** Chapter 6 includes three lessons and culminates in the completion of your Leaflet map.
 
 *   In Lesson 1, we contrast procedural versus object-oriented coding with JavaScript by refactoring some existing, suboptimal code from Chapter 4-5.
 *   In Lesson 2, we refresh our introduction of Leaflet to look at it as a library of classes and use several of these classes to implement UI controls and a temporal legend.
@@ -568,7 +568,7 @@ Step 2 of the pseudocode creates each example proportional circle for the legend
             $(container).append(svg);
 
 
-On line 10 of Example 3.6, we assign the circle `id` attribute based orean the current value of the array. Other attributes are similar to the code on line 3 of Example 3.2, except that we have left out the unnecessary `stroke-miterlimit` attribute as well as the necessary `cy` and `r` attributes. We have left out the latter two because these will be assigned dynamically depending on the dataset values for each attribute. Because they are left out, no circles will appear yet in the legend, but if you were to inspect the legend, you could see that the `<circle>` elements are all present in the DOM.
+On line 10 of Example 3.6, we assign the circle `id` attribute based on the current value of the array. Other attributes are similar to the code on line 3 of Example 3.2, except that we have left out the unnecessary `stroke-miterlimit` attribute as well as the necessary `cy` and `r` attributes. We have left out the latter two because these will be assigned dynamically depending on the dataset values for each attribute. Because they are left out, no circles will appear yet in the legend, but if you were to inspect the legend, you could see that the `<circle>` elements are all present in the DOM.
 
 After the loop, we must add a closing `</svg>` tag to the string (line 15) before appending it to the control container.
 
@@ -600,7 +600,7 @@ For Step 3 of our pseudocode, we want to size and center our legend's circles ba
         dataStats.max = Math.max(...allValues);
         //calculate meanValue
         var sum = allValues.reduce(function(a, b){return a+b;});
-        dataStats.mean = sum/ allValues.length;
+        dataStats.mean = sum / allValues.length;
     
     }    
       
@@ -672,10 +672,10 @@ Now we are ready for Step 4 of the pseudocode. We can create text within an SVG 
                 
                 //Step 3: assign the r and cy attributes            
                 var radius = calcPropRadius(dataStats[circles[i]]);           
-                var cy = 130 - radius;            
+                var cy = 59 - radius;            
                 
                 //circle string            
-                svg += '<circle class="legend-circle" id="' + circles[i] + '" r="' + radius + '"cy="' + cy + '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="65"/>';
+                svg += '<circle class="legend-circle" id="' + circles[i] + '" r="' + radius + '"cy="' + cy + '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="30"/>';
                 
                 //evenly space out labels            
                 var textY = i * 20 + 20;            
@@ -697,6 +697,28 @@ This adds a `<text>` element with a unique id and content for each circle to th
 ###### Figure 3.8: Example Leaflet map with a finished legend
 
 > ### **Create an attribute legend for your Leaflet map based on the minimum, mean, and maximum attribute values across all attributes in your dataset (as in the Cartographic Perspectives companion tutorial).**
+
+
+## Activity 6.2
+
+**Activity 6 is all based on `MegaCities.geojson`, you don't need to use `NYC Taxi Dataset` or your own datasets.**
+
+**If you have trouble with Chapter 5, you can download completed version of the folder from [Chapter 05 Solutions](https://github.com/geohai/webmapping/blob/master/Chapter05/Chapter_05_Solutions.zip) and start Chapter 6 on the clean folder.**
+
+1.  Refactor any duplicate code in your script using either procedural or object-oriennted programming.
+2.  Create a temporal or sequence legend on your leaflet map.
+3.  Create an attribute legend for your Leaflet map based on the minimum, mean, and maximum attribute values across all attributes in your dataset. (You should add a updateLegend() function to update the attribute legend when click the buttons)
+```
+    //PSEUDOCODE FOR UPDATE ATTRIBUTE LEGEND
+    Step 1. Update the content for legend (e.g. Population in XXXX)
+    Step 2. Update `<circle>` element for each of three attribute values: min, max, and mean
+            You may might need a separate function to get min, max, and mean from the dataset of the current layer
+```
+The final result should look like this, and pay attention to the legend on the botton-right.
+![final_result.gif](img/final_result.gif)
+
+4.  Zip a copy of your _unit-2_ folder and upload it to Canvas. The folder should include the `index.html`, `main.js` in the `js`folder, `style.css` in the `css` folder, _leaflet_ and _jQuery_ library in your `lib` folder, `MegaCities.geojson` in the `data` folder, and two _images_ in the `img` folder.
+5.  **Optional:** Commit the changes to your _unit-2_ directory and sync with GitHub. Include "Activity 6" in the commit message (Summary). 
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
