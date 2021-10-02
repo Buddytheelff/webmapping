@@ -707,14 +707,15 @@ This adds a `<text>` element with a unique id and content for each circle to th
 
 1.  Refactor any duplicate code in your script using either procedural or object-oriennted programming.
 2.  Create a temporal or sequence legend on your leaflet map.
-3.  Create an attribute legend for your Leaflet map based on the minimum, mean, and maximum attribute values across all attributes in your dataset. (You should add a updateLegend() function to update the attribute legend when click the buttons)
+3.  Create an attribute legend for your Leaflet map based on the minimum, mean, and maximum attribute values across all attributes in your dataset. (**You should add a updateLegend() function to update the attribute legend when click the buttons**)
 ```
     //PSEUDOCODE FOR UPDATE ATTRIBUTE LEGEND
     Step 1. Update the content for legend (e.g. Population in XXXX)
     Step 2. Update `<circle>` element for each of three attribute values: min, max, and mean
-            You may might need a separate function to get min, max, and mean from the dataset of the current layer
+            You may might need a separate function to get min, max, and mean from the dataset
+            of the current layer
 ```
-The final result should look like this, and pay attention to the legend on the botton-right.
+The final result should look like this, and **pay attention to the legend on the botton-right**, which is updated for each temporal point.
 ![final_result.gif](img/final_result.gif)
 
 4.  Zip a copy of your _unit-2_ folder and upload it to Canvas. The folder should include the `index.html`, `main.js` in the `js`folder, `style.css` in the `css` folder, _leaflet_ and _jQuery_ library in your `lib` folder, `MegaCities.geojson` in the `data` folder, and two _images_ in the `img` folder.
