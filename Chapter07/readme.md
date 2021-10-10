@@ -3,7 +3,7 @@
 Chapter 7: Collaborating with Github
 ===================================
 
-You have been working individually with GitHub for six chapters now, and completed your first major interactive map with Leaflet hosted through GitHub! Chapter 7 provides additional guidance for working _collaboratively_ with GitHub to support a group project. Chapter 7 includes three relatively short lessons and an activity to set-up a collaborative repository serving the basis of a group project.
+You may have been working individually with GitHub for six chapters now, and completed your first major interactive map with Leaflet hosted through GitHub! Chapter 7 provides additional guidance for working _collaboratively_ with GitHub to support a group project. Chapter 7 includes three relatively short lessons and an activity to set-up a collaborative repository serving the basis of a group project.
 
 *   In Lesson 1, we briefly refresh your memory on GitHub concepts and introduce the Markdown language for documentation and collaboration on GitHub.
 *   In Lesson 2, we provide instructions for setting-up a collaborative repository and using Markdown to plan a group project.
@@ -15,7 +15,7 @@ After this chapter, you should be able to:
 *   Write a readme file in Markdown
 *   Use GitHub as a platform for collaborative coding
 
-Note: The Chapter 7 lessons support what could be conceptualized as a group final project in a classroom setting, but cover skills important to collaborative coding on any group project. If you are working through this chapter by yourself and not in a classroom setting, create a second GitHub account using an alternate email address to practice the collaborative coding concepts described below, as these will be valuable once entering a group work environment. This lesson is not required to continue with solo coding in D3 in _unit-3_.
+Note: The Chapter 7 lessons support what could be conceptualized as a group project in a classroom setting, but cover skills important to collaborative coding on any group project. If you are working through this chapter by yourself and not in a classroom setting, create a second GitHub account using an alternate email address to practice the collaborative coding concepts described below, as these will be valuable once entering a group work environment. This lesson is not required to continue with solo coding in D3 in _unit-3_.
 
 Lesson 1: Collaborating through GitHub
 ==========================
@@ -31,7 +31,7 @@ We primarily focused on GitHub concepts used for solo coding in Chapter 1:
 *   _**[Commit](https://help.github.com/en/github/getting-started-with-github/github-glossary#commit):**_ [](https://help.github.com/en/github/getting-started-with-github/github-glossary#collaborator) A commit, or "revision", is an individual change to a file (or set of files). A commit is like when you _save_ a file, except with Git, every time you save it creates a unique ID (a.k.a., the "SHA" or "hash") that allows you to keep record of what changes were made when and by whom. 
 *   _**[Push](https://help.github.com/en/github/getting-started-with-github/github-glossary#push):**_ Pushing refers to sending your committed changes to a remote repository, such as a repository hosted on GitHub. For instance, if you change something locally, you then _push_ those changes so that others may access them.
 
-You should be conformable with cloning, committing, and pushing through Chapter 6. In Chapter 7, we combine these concepts with GitHub techniques supporting collaborative coding.
+You should be conformable with cloning, committing, and pushing through previous Chapters. In Chapter 7, we combine these concepts with GitHub techniques supporting collaborative coding.
 
 *   _**[Fork](https://help.github.com/en/github/getting-started-with-github/github-glossary#fork):**_ A fork is a personal copy of another user's repository that lives on your account. Forks allow you to freely make changes to a project without affecting the original. Forks remain attached to the original, allowing you to submit a pull request to the original author to update with your changes. You can also keep your fork up to date by pulling in updates from the original.
 *   _**[Branch](https://help.github.com/en/github/getting-started-with-github/github-glossary#branch):**_ A branch is a parallel version of a repository. It is contained within the repository, but does not affect the primary or `main` branch allowing you to work freely without disrupting the "live" version. When you've made the changes you want to make, you can merge your branch back into the `main` branch to publish your changes.
