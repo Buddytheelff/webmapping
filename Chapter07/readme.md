@@ -293,7 +293,7 @@ In addition to discussing any issues with your team members, remember that GitHu
 1.  Clone the collaborative repository we created for you.
 2.  Add your name to the top of the _readme.md_ file, using a commit message "Activity 7"
 3.  Add an outline based on the group project proposal requirements.
-4.  Deliverables: A link of your GitHub Repo (via comment or a text file with the link)
+4.  Deliverables: A link of your GitHub Repo
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
