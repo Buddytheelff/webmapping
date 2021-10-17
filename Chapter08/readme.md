@@ -28,7 +28,7 @@ You can review hundreds of fantastic example visualizations created by D3 develo
 
 In this module, we introduce the core principles used by the library to build a simple data-driven graphic. Important formatting rules are highlighted by bullet points; use these to keep your code neater and facilitate the development and debugging process.
 
-To begin, you will need to copy your boilerplate web directory and rename the copy _unit-3_. Then, download the library from the [D3 website](http://d3js.org/), unzip it, place it in the _lib_ folder of your new website, and add a script link to it in _index.html_. Create a _main.js_ file for the _unit-3_ web directory, save it to the _js_ folder, and add a second script link to it. Finally, create a _style.css_ file, save it to the _css_ folder, and link to it in _index.html_. Finally, create a _data_ folder that will hold your Unit 2 multivariate dataset.
+To begin, you will need to copy your [boilerplate](../Chapter04/boilerplate.zip) web directory and rename the copy _unit-3_. Then, download the library from the [D3 website](http://d3js.org/), unzip it, place it in the _lib_ folder of your new website, and add a script link to it in _index.html_. Create a _main.js_ file for the _unit-3_ web directory, save it to the _js_ folder, and add a second script link to it. Finally, create a _style.css_ file, save it to the _css_ folder, and link to it in _index.html_. Finally, create a _data_ folder that will hold your Unit 2 multivariate dataset.
 
 > ### **Create a new web directory called _unit-3_. Add _d3.js_ to the _lib_ folder, _main.js_ to the js folder, and _style.css_ to the _css_ folder. Add links for each file in the appropriate places in _index.html_. Also add a _data_ folder, which will house your Unit 3 multivariate dataset. Create a new Git repository for the directory and sync it with GitHub.**
 
@@ -403,7 +403,7 @@ So far, we have relied upon a very simple array to build our example graphic. Wh
     ];
     
 
-We can make a bubble chart out of this data by combining it with our `circles` block. We need to make a few modifications to the block: derive the circle radii from the populations as areas and derive the center y coordinates from the populations times a scale factor (Example 2.8). Let's pass on Flannery for now for demonstrative purposes.
+We can make a bubble chart out of this data by combining it with our `circles` block. We need to make a few modifications to the block: derive the circle radius from the populations as areas and derive the center y coordinates from the populations times a scale factor (Example 2.8). Let's pass on Flannery for now for demonstrative purposes.
 
 ###### Example 2.8: Using the `cityPop` array to create circles in _main.js_
 
@@ -854,10 +854,12 @@ With these adjustments made, we have a complete, readable data graphic (Figure 3
 
 ## Activity 8
 
-1.  Create a _unit-3_ web directory and Git repository.
-2.  Create a bubble chart based on the simple Chapter 2 dataset. Save a copy of your _main.js_ as _bubblechart.js_, as you will replace this code in your _main.js_ in Chapter 9. 
-3.  Find and format a multivariate dataset for the Unit 3 D3 map.
-4.  Commit and sync the dataset and your _unit-3_ folder (including _bubblechart.js_) in your data folder of the _unit-3_ directory with the commit message "Activity 8".
+1.  Create a _unit-3_ web directory.
+2.  Create a bubble chart based on the dataset in the tutorial.
+3.  Find and format the dataset for the Unit 3 D3 map.
+4.  Zip a copy of your _unit-3_ folder and upload it to Canvas. The folder should include the `index.html`, `main.js` in the `js`folder, `style.css` in the `css` folder and _D3_ library in your `lib` folder.
+5. **Optional:** Commit the changes to your _unit-3_ directory and sync with GitHub. Include "Activity 8" in the commit message (Summary). 
+
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
