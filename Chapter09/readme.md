@@ -93,9 +93,9 @@ The major downside to using TopoJSON is that it is under-supported by major desk
 
 _**MapShaper**_ is a line and polygon simplification tool developed and maintained by New York Times Graphics Editor (and UW-Madison alum!) Matthew Bloch. As discussed in lecture, geospatial data often need to be generalized for interactive web maps, sometimes at different scales for slippy web maps. Line generalization is especially important for mobile-first design to simplify overly-complex geometry. For the D3 map, you will want to balance keeping your geographic areas recognizable with minimizing the data size to maximize the speed of drawing and interaction in the browser. This tradeoff almost certaintly requires simplifying your chosen spatial data. MapShaper has the added benefit of converting from shapefiles, GeoJSON, or other "flat" files without topology (e.g., DBF and CSV) into TopoJSON as part of the generalization export process.
 
-The following lessons make use of two GeoJSON files: [_EuropeCountries.geojson_](data/EuropeCountries.geojson "EuropeCountries.geojson") and [_FranceRegions.geojson_](data/FranceRegions.geojson "FranceRegions.geojson"). You should replace these with your own chosen geospatial datasets gathered for your D3 map as part of Activity 8. If you are still searching for polygonal linework, a good source for global- and country-scale data for D3 mapping is [Natural Earth](http://www.naturalearthdata.com/). Other sources may require that you first convert the coordinate system to EPSG:4326/WGS 84 using desktop GIS (try some Google Fu to determine how to do this in your preferred GIS software). If you are working with shapefiles, delete any extra attributes from your dataset to reduce the file size, leaving just the attribute field you will use for joining your multivariate CSV data prepared for Activity 8.
+The following lessons make use of two GeoJSON files: [_EuropeCountries.geojson_](data/EuropeCountries.geojson "EuropeCountries.geojson") and [_FranceRegions.geojson_](data/FranceRegions.geojson "FranceRegions.geojson"). If you are still searching for polygonal linework, a good source for global- and country-scale data for D3 mapping is [Natural Earth](http://www.naturalearthdata.com/). Other sources may require that you first convert the coordinate system to EPSG:4326/WGS 84 using desktop GIS (try some Google Fu to determine how to do this in your preferred GIS software). If you are working with shapefiles, delete any extra attributes from your dataset to reduce the file size, leaving just the attribute field you will use for joining your multivariate CSV data prepared.
 
-> **Find your polygon data, confirm it is in EPSG:4326 in desktop GIS, and strip extra attributes.**
+> **Download the polygon data ([_EuropeCountries.geojson_](data/EuropeCountries.geojson "EuropeCountries.geojson") and [_FranceRegions.geojson_](data/FranceRegions.geojson "FranceRegions.geojson")), confirm it is in EPSG:4326 in desktop GIS, and strip extra attributes.**
 
 The next step is to navigate to [mapshaper.org](http://mapshaper.org/) and import your geospatial dataset(s) by dragging them into the browser. Shapefiles should be dragged into the browser as a single, compressed _.zip_ file. If formatted correctly, your data should appear immediately as linework against a blank backdrop. If it does not appear, go back to your desktop GIS software and check that you have removed any projection information by assigning EPSG:4326 as the CRS.
 
@@ -105,7 +105,7 @@ Once you see your data, select "Simplify" in the upper-right-hand corner of the 
 
 ###### Figure 1.1: Simplifying spatial data in MapShaper
 
-> ### **Simplify your spatial data and convert it to TopoJSON format using mapshaper. Save the resulting TopoJSON in the _data_ folder of your _unit-3_ directory, changing the file extension to _.topojson_.**
+> ### **Simplify the spatial data and convert it to TopoJSON format using mapshaper. Save the resulting TopoJSON in the _data_ folder of your _unit-3_ directory, changing the file extension to _.topojson_.**
 
 Note: For Mac users, you may need to right click the file, go to "Get Info" and rename it in "Name & Extension" to change the file extension from .json to .topojson.
 
@@ -173,7 +173,7 @@ The `console.log()` statements print the results to separate lines of the consol
 
 ###### Figure 1.3: Results of Promise.all() callback
 
-> ### **Load your datasets using a JavaScript promise and confirm the data are loading correctly using the console.**
+> ### **Load the datasets using a JavaScript promise and confirm the data are loading correctly using the console.**
 
 ### IV. Using Topojson.js to Translate TopoJSON
 
@@ -206,7 +206,7 @@ In Example 1.5, each TopoJSON object is passed as the first parameter to `topojs
 
 ###### Figure 1.4: GeoJSON data created in the DOM by topojson.js
 
-> ### **In _main.js_, use `Promise.all()` to load your TopoJSON and CSV data into the DOM. Use _topojson.js_ to translate the imported data into GeoJSON format for mapping with D3.**
+> ### **In _main.js_, use `Promise.all()` to load the TopoJSON and CSV data into the DOM. Use _topojson.js_ to translate the imported data into GeoJSON format for mapping with D3.**
 
 Lesson 2: D3 Projections and Path Generators
 --------------------------------------------
@@ -225,7 +225,7 @@ Figure 2.1 demonstrates the distortion that occurs in even the simplest of proje
 
 ###### Figure 2.1: Projecting the globe onto a two-dimensional surface using the Plate Carrée projection ([original graphic](http://bl.ocks.org/mbostock/5731632) by Mike Bostock)
 
-Fortunately for us, modern desktop GIS software does the dirty work of applying projections to our chosen spatial datasets, meaning we usually do not have to learn the complex math behind projections. We instead select the projection that is cartographically appropriate given the type and scale of the map we want to make. We recommend [Projection Wizard](https://projectionwizard.org/) to help inform an appropriate projection for your Lab 2 map, making sure it is equal-area given we are making a choropleth map!
+Fortunately for us, modern desktop GIS software does the dirty work of applying projections to our chosen spatial datasets, meaning we usually do not have to learn the complex math behind projections. We instead select the projection that is cartographically appropriate given the type and scale of the map we want to make. We recommend [Projection Wizard](https://projectionwizard.org/) to help inform an appropriate projection for your map, making sure it is equal-area given we are making a choropleth map!
 
 Unfortunately for cartographers, with the advent of tile-based slippy maps—such as the one you created for your Leaflet map—one projection became dominant on the Web: so-called [Web Mercator](https://en.wikipedia.org/wiki/Web_Mercator). This projection was created and popularized by Google in the mid-2000's; before it was assigned an official EPSG code (now 3857), it was unofficially referenced using the code EPSG:900913—a clever pun. It was chosen by Google for its technical advantages: it is a relatively simple equation, a cylindrical projection that can be made infinitely continuous to the east and west, and approximately conformal so it preserves angles at high latitudes, making it good for navigation at local zoom levels anywhere on the planet. But for thematic mapping, it suffers from the disadvantage of severe area distortion at high latitudes, exaggerating the land area of the northern hemisphere (e.g., Greenland appears to be larger than Africa when in reality it is much smaller). While it is possible to make slippy map tilesets in other projections, it remains rare.
 
@@ -286,7 +286,7 @@ The fifth parameter, [`.translate()`](https://github.com/d3/d3-geo/blob/master/R
 
 Note that D3's projection parameters differ somewhat from the [projection parameters](http://help.arcgis.com/en/geodatabase/10.0/sdk/arcsde/concepts/geometry/coordref/coordsys/projected/mapprojections.htm) commonly used by desktop GIS software. Rather than treating the projection centering holistically, D3 breaks it down into the position of the reference globe and the developable surface. The first two values given to `.rotate()` specify the reference globe's central meridian and central parallel, while `.center()` specifies the latitude and longitude of the developable surface's center. For conic projections, in order to keep north "up" in the center of the map and minimize distortion in your area of focus, you should keep the `.center()` longitude and `.rotate()` latitude each as `0` and assign the center coordinates of your chosen area as the `.center()` latitude and `.rotate()` longitude (Example 1.4 lines 17-18). If the geometric reasons for this are hard to grasp, you can experiment with different parameter values and see their effects using the Albers projection demonstration web app linked below.
 
-> ### **Experiment with the uwcart [D3 Albers Projection Demo](http://uwcart.github.io/d3-projection-demo/) web application to see how different D3 parameter values affect the Albers projection. Then, visit the [D3 Geo-Projections](https://github.com/d3/d3-geo/blob/master/README.md#projections) page and the [Extended Geographic Projections](https://github.com/d3/d3-geo-projection/) page and choose a projection to implement that is cartographically appropriate given your chosen data. Make sure the selected projection is <ins>_equal-area_</ins>! Write the projection block for your chosen projection in _main.js_.**
+> ### **Experiment with the uwcart [D3 Albers Projection Demo](http://uwcart.github.io/d3-projection-demo/) web application to see how different D3 parameter values affect the Albers projection. Then, visit the [D3 Geo-Projections](https://github.com/d3/d3-geo/blob/master/README.md#projections) page and the [Extended Geographic Projections](https://github.com/d3/d3-geo-projection/) page and choose a projection to implement that is cartographically appropriate given the chosen data. Make sure the selected projection is <ins>_equal-area_</ins>! Write the projection block for your chosen projection in _main.js_.**
 
 ### II. Drawing Projected Data
 
@@ -479,11 +479,12 @@ You may choose to add your own stylistic touches to your overall map. Do not fee
 
 ## Activity 9
 
-1.  Simplify your spatial data and convert it to TopoJSON format.
-2.  Use `Promise.all()` to load your spatial data TopoJSON files and multivariate attribute CSV file into your _main.js_ script.
-3.  Choose a projection to use with your choropleth map and create the appropriate D3 projection generator.
+1.  Simplify the spatial data and convert it to TopoJSON format.
+2.  Use `Promise.all()` to load the spatial data TopoJSON files and multivariate attribute CSV file into your _main.js_ script.
+3.  Choose a projection to use with the choropleth map and create the appropriate D3 projection generator.
 4.  Add appropriate styles in _style.css_, which may include a graticule.
-5.  Commit and sync your _unit-3_ directory (including the TopoJSON) with the commit message "Activity 9".
+5.  Zip a conpy of your working folder and upload it to Canvas. The folder should include the `index.html`, `main.js` in the `js`folder, `style.css` in the `css` folder and _D3_ library and `topojson.js` lib in your `lib` folder.
+6.  **Optional:** Commit and sync your _unit-3_ directory (including the TopoJSON) with the commit message "Activity 9".
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
