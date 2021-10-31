@@ -306,7 +306,7 @@ We now have a fully interactive choropleth map and linked visualization, with th
 
 ###### Figure 1.3: Interactive choropleth map and chart
 
-> ### **Implement a visual affordance that allows the user to change the expressed attribute and visual feedback that updates your choropleth map and data visualization in response to user input.**
+> ### **Implement a visual affordance that allows the user to change the expressed attribute and visual feedback that updates the choropleth map and data visualization in response to user input.**
 
 ### III. Transitions
 
@@ -359,7 +359,7 @@ In Example 1.10, we add a `.transition()` after the data has been sorted accordi
 
 ###### Figure 1.4: Animated transitions between attributes on choropleth map and chart
 
-> ### **Implement transitions in response to attribute change on your choropleth map and on your data visualization if appropriate.**
+> ### **Implement transitions in response to attribute change on the choropleth map and on the data visualization if appropriate.**
 
 Lesson 2: Linked Retrieve Interactions
 --------------------------------------
@@ -439,7 +439,7 @@ If we now test our highlighting, we can see it working (Figure 2.1). The brushed
 
 ###### Figure 2.1: Linked highlighting
 
-> ### **Implement highlighting on your choropleth map and linked visualization.**
+> ### **Implement highlighting on the choropleth map and linked visualization.**
 
 ### II. Dehighlighting
 
@@ -527,7 +527,7 @@ We now have working linked highlighting and dehighlighting, allowing only one fe
 
 ###### Figure 2.3: Linked highlighting and dehighlighting
 
-> ### **Implement dehighlighting on your choropleth map and linked visualization.**
+> ### **Implement dehighlighting on the choropleth map and linked visualization.**
 
 ### III. Dynamic Labels
 
@@ -690,9 +690,9 @@ We now have a label that follows the mouse and switches sides to avoid overflow 
 
 ###### Figure 2.5: Dynamic label
 
-> ### **Implement a dynamic label on your choropleth map and linked visualization.**
+> ### **Implement a dynamic label on the choropleth map and linked visualization.**
 
-### IV. Extending Your Coordinated Visualization
+### IV. Extending Your Coordinated Visualization (Optional)
 
 Here ends the tutorials related to constructing your multivariate coordinated visualization...but your work is not over! If you chose to begin by following the tutorial examples, it is now time to implement your own custom UI/UX design. You should use the principles of cartographic design and interaction that you have learned up to this point to push beyond the basic requirements of the D3 map and make your final product visually stunning and an experience your users will remember.
 
@@ -712,6 +712,13 @@ Consider implementing the following components that have not been covered in the
 There is only so much you can learn from following along with written tutorials. You have probably already grappled with making use of online examples, documentation, and help forums to do something awesome. We have tried to open the door for you; to become a professional-level web mapper, you need to dive in and figure out the rest on your own. If you have made it this far, you should feel highly confident in your ability to do so!
 
 > ### **Add logical additional features to your coordinated visualization and finalize its user interface design.**
+
+## Activity 11
+
+1.  Implement the reexpress operator using menu selection to change the attribute in both map and linked visualization.
+2.  Implement the retrieve operator using direct manipulation to link enumeration units on the map to elements in the linked visualization.
+3.  Zip a copy of your working folder and upload it to Canvas. The folder should include the `index.html`, `main.js` in the `js`folder, `style.css` in the `css` folder and _D3_ library and `topojson.js` lib in your `lib` folder.
+4.  **Optional** Commit and sync your _unit-3_ directory with the commit message "Activity 11".
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
