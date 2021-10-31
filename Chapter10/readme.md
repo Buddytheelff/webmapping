@@ -801,7 +801,7 @@ Rather than step through each of the necessary adjustments to the script and sty
 1.  Join the CSV attribute data to the GeoJSON geospatial data and map one of the attributes in the Activity 9 basemap as a choropleth.
 2.  Create a coordinated visualization that supports the choropleth map by providing a sensible alternative view of the data.
 3.  Annotated the coordinated visualization with a title, and either value labels or one or more axes.
-4.  Zip a conpy of your working folder and upload it to Canvas. The folder should include the `index.html`, `main.js` in the `js`folder, `style.css` in the `css` folder and _D3_ library and `topojson.js` lib in your `lib` folder.
+4.  Zip a copy of your working folder and upload it to Canvas. The folder should include the `index.html`, `main.js` in the `js`folder, `style.css` in the `css` folder and _D3_ library and `topojson.js` lib in your `lib` folder.
 5.  **Optional** Commit and sync your _unit-3_ directory with the commit message "Activity 10".
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
