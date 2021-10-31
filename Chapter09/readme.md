@@ -483,7 +483,7 @@ You may choose to add your own stylistic touches to your overall map. Do not fee
 2.  Use `Promise.all()` to load the spatial data TopoJSON files and multivariate attribute CSV file into your _main.js_ script.
 3.  Choose a projection to use with the choropleth map and create the appropriate D3 projection generator.
 4.  Add appropriate styles in _style.css_, which may include a graticule.
-5.  Zip a conpy of your working folder and upload it to Canvas. The folder should include the `index.html`, `main.js` in the `js`folder, `style.css` in the `css` folder and _D3_ library and `topojson.js` lib in your `lib` folder.
+5.  Zip a copy of your working folder and upload it to Canvas. The folder should include the `index.html`, `main.js` in the `js`folder, `style.css` in the `css` folder and _D3_ library and `topojson.js` lib in your `lib` folder.
 6.  **Optional:** Commit and sync your _unit-3_ directory (including the TopoJSON) with the commit message "Activity 9".
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
