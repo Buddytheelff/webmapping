@@ -3,26 +3,26 @@
 Chapter 10: Coordinated Visualizations
 =====================================
 
-Congratulations on building your first basemap with D3! In Chapter 10, we will will apply what you have learned about D3 selections, scales, and geographic features for dynamically creating a coordinated, multiview visualization of your multivariate attribute dataset. Chapter 10 includes two long lessons and ends with Activity 10, a choropleth map with linked bar chart:
+Congratulations on building your first basemap with D3! In Chapter 10, we will will apply what you have learned about D3 selections, scales, and geographic features for dynamically creating a coordinated, multiview visualization of the multivariate attribute dataset. Chapter 10 includes two long lessons and ends with Activity 10, a choropleth map with linked bar chart:
 
--   In Lesson 1, we walkthrough the steps needed to dynamically join your attribute and geospatial data and then symbolize your choropleth map using a color scale. The choropleth map is added atop the basemap you completed for Activity 9. 
+-   In Lesson 1, we walkthrough the steps needed to dynamically join the attribute and geospatial data and then symbolize the choropleth map using a color scale. The choropleth map is added atop the basemap you completed for Activity 9. 
 -   In Lesson 2, we describe how to draw a complementary bar chart, modifying the bubblechart example from Chapter 8.
 
-In completing the previous chapter, you should have loaded your spatial and attribute data into the browser and used projection and path generators to draw a basemap from your spatial data. 
+In completing the previous chapter, you should have loaded the spatial and attribute data into the browser and used projection and path generators to draw a basemap from the spatial data. 
 
 After this chapter, you should be able to:
 
--   Create a choropleth map based on attribute values for a single attribute within your multivariate dataset.
+-   Create a choropleth map based on attribute values for a single attribute within the multivariate dataset.
 -   Draw a bar chart representing the same attribute values visualized on the map, with the bars automatically sorted from smallest to largest.
 
 Lesson 1: Dynamic Choropleth Symbolization
 ----------------------------------------
 
-### I. Joining Your Data
+### I. Joining the Data
 
-The first step of creating a dynamic choropleth map is joining your attribute data to your geospatial data using a common attribute. In Chapter 9, we instructed you to create separate geospatial and attribute datasets, with the former stored in TopoJSON format and the latter in CSV format. It is possible to store your attribute data along with the spatial data as you convert from shapefiles to GeoJSON and TopoJSON formats. However, we have structured the Chapter 9 lesson to separate these files to give you a sense of making multiple AJAX calls using the [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) method as well as familiarizing you with the different JSON and CSV AJAX methods in D3. Further, you often need to load geospatial data from a database or attribute data from a live stream—combining the two in browser—rather than load a single combined file.
+The first step of creating a dynamic choropleth map is joining the attribute data to the geospatial data using a common attribute. In Chapter 9, we instructed you to create separate geospatial and attribute datasets, with the former stored in TopoJSON format and the latter in CSV format. It is possible to store the attribute data along with the spatial data as you convert from shapefiles to GeoJSON and TopoJSON formats. However, we have structured the Chapter 9 lesson to separate these files to give you a sense of making multiple AJAX calls using the [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) method as well as familiarizing you with the different JSON and CSV AJAX methods in D3. Further, you often need to load geospatial data from a database or attribute data from a live stream—combining the two in browser—rather than load a single combined file.
 
-We will accomplish the data "join" through a nested looping structure. Before writing the looping structure, check to ensure that your attribute data are correctly loading into the browser and are accessible within the DOM. Figure 1.1 shows a console log of one object from our attribute data on the left and the corresponding GeoJSON object in the DOM on the right. Confirm your attribute data have maintained their format from the CSV import.
+We will accomplish the data "join" through a nested looping structure. Before writing the looping structure, check to ensure that the attribute data are correctly loading into the browser and are accessible within the DOM. Figure 1.1 shows a console log of one object from our attribute data on the left and the corresponding GeoJSON object in the DOM on the right. Confirm the attribute data have maintained their format from the CSV import.
 
 ![figure10.1.1.png](img/figure10.1.1.png)
 
@@ -71,7 +71,7 @@ This is one of many possible ways to accomplish the data join. If you choose to 
 
 Compare the other attributes that have appeared in the GeoJSON feature properties in Figure 1.2 to the data in the CSV feature. The numbers are identical, but note that all CSV attribute values are strings, whereas the numerical attributes in the GeoJSON feature are numbers. To work with a D3 linear scale, your attribute data <ins>**_must_**</ins> be typed as numbers—hence the use of the `parseFloat()` JavaScript method to change the CSV strings into numbers as they are transferred (Example 1.1 line 24).
 
-> ### **Join your CSV data to your GeoJSON features. Check the results of your data join script against the GeoJSON data structure on the right side of Figure 1.2. If your script does not produce similar results, use Example 1.1 to determine where the problem may lie.**
+> ### **Join the CSV data to the GeoJSON features. Check the results of the data join script against the GeoJSON data structure on the right side of Figure 1.2. If the script does not produce similar results, use Example 1.1 to determine where the problem may lie.**
 
 ### II. Advanced JavaScript: From Global to Local
 
@@ -149,7 +149,7 @@ Let's also tidy up our script by moving some of our code that performs specific 
 
 In Example 1.3, we moved three tasks into their own functions. The three blocks to create the background graticule are moved to `setGraticule()` (lines 8-9 and 29-31). The loops used to accomplish the CSV to GeoJSON attribute data transfer are moved to `joinData()` (lines 21-22 and 33-37), which returns the updated `franceRegions` GeoJSON features array. Finally, the `regions` block that adds our enumeration units to the map is moved to its own `setEnumerationUnits()` function (lines 24-25 and 39-41). For each of these functions, the variables needed by the script within the function are passed to it as function parameters.
 
-> ### **Move your attribute array and `expressed` variables to the top of _main.js_, encapsulate your script within a self-executing anonymous wrapper function, and group tasks within the callback into their own defined functions.**
+> ### **Move the attribute array and `expressed` variables to the top of _main.js_, encapsulate the script within a self-executing anonymous wrapper function, and group tasks within the callback into their own defined functions.**
 
 ### III. Creating a Color Scale
 
@@ -299,7 +299,7 @@ Of the three classification schemes, which should we use? It depends on the dist
 
 Notice in Figure 1.3 that mapping our example datset with an equal interval classification scheme would result in many of our enumeration units falling into one of the first two classes, a few units in each of the third and fifth classes, and none of the enumeration units falling into the fourth class for the varA attribute. The quantile scale results in every color class appearing on the map a similar number of times, but as a result groups the three highest values with the next two lowest despite a very large gap in between. Natural Breaks ensures that each class is represented but clusters the data in such a way as to minimize the gaps between data values within a single class.
 
-> ### **Choose a choropleth classification scheme based on your dataset and create a color scale generator that implements that scheme in _main.js_.**
+> ### **Choose a choropleth classification scheme based on the dataset and create a color scale generator that implements that scheme in _main.js_.**
 
 ### IV. Coloring the Enumeration Units
 
@@ -372,7 +372,7 @@ Figure 1.5 shows the resulting styled choropleth map.
 
 ###### Figure 1.5: The choropleth map with enumeration unit borders
 
-> ### **Apply your color scale generator to your enumeration units. Make sure your script assigns a neutral color to any units with no value for the expressed attribute.**
+> ### **Apply your color scale generator to the enumeration units. Make sure your script assigns a neutral color to any units with no value for the expressed attribute.**
 
 Lesson 2: Drawing a Coordinated Visualization
 ---------------------------------------------
@@ -464,7 +464,7 @@ In Example 2.3, we add a 10-pixel top margin and 20-pixel left margin to the map
 
 If you try to resize your browser window, you will find that the frames are only "responsive" if the page is reloaded. In Chapter 11, we describe how to use event listeners to dynamically adjust the layout any time the window is resized.
 
-> ### **Add an SVG container for your data visualization and adjust your map container size so that both fit neatly on the web page for a wide range of browser window sizes.**
+> ### **Add an SVG container for the data visualization and adjust the map container size so that both fit neatly on the web page for a wide range of browser window sizes.**
 
 ### II. Adding Bars
 
@@ -794,14 +794,15 @@ Rather than step through each of the necessary adjustments to the script and sty
 
 ###### Figure 2.9: Comparing the two chart versions using the inspector
 
-> ### **Create a bar chart or alternative data visualization that clearly expresses the attribute values shown on the choropleth map and is classed using your choropleth classification scheme.**
+> ### **Create a bar chart or alternative data visualization that clearly expresses the attribute values shown on the choropleth map and is classed using the choropleth classification scheme.**
 
 ## Activity 10
 
-1.  Join your CSV attribute data to your GeoJSON geospatial data and map one of the attributes in your Activity 9 basemap as a choropleth.
-2.  Create a coordinated visualization that supports your choropleth map by providing a sensible alternative view of the data.
-3.  Annotated your coordinated visualization with a title, and either value labels or one or more axes.
-4.  Commit and sync your _unit-3_ directory with the commit message "Activity 10".
+1.  Join the CSV attribute data to the GeoJSON geospatial data and map one of the attributes in the Activity 9 basemap as a choropleth.
+2.  Create a coordinated visualization that supports the choropleth map by providing a sensible alternative view of the data.
+3.  Annotated the coordinated visualization with a title, and either value labels or one or more axes.
+4.  Zip a conpy of your working folder and upload it to Canvas. The folder should include the `index.html`, `main.js` in the `js`folder, `style.css` in the `css` folder and _D3_ library and `topojson.js` lib in your `lib` folder.
+5.  **Optional** Commit and sync your _unit-3_ directory with the commit message "Activity 10".
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
