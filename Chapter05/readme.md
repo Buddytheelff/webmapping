@@ -273,7 +273,7 @@ You already used Leaflet popups within the `onEachFeature` function in the [_Usi
             opacity: 1,
             fillOpacity: 0.8
         };
-    
+     
         //For each feature, determine its value for the selected attribute
         var attValue = Number(feature.properties[attribute]);
     
