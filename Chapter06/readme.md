@@ -692,7 +692,40 @@ Now we are ready for Step 4 of the pseudocode. We can create text within an SVG 
 
 This adds a `<text>` element with a unique id and content for each circle to the SVG (line 8).  Notice that we evenly space out each `<text>` element's `y` coordinate attribute for readability. This completes our legend and the basic requirements for the Leaflet map (Figure 3.8)!
 
-###### Example4.0: Adding updateLegend _main.js_
+###### Example4.0: Adding updateLegend and getCircleValues in _main.js_
+     function getCircleValues(attribute) {
+        //start with min at highest possible and max at lowest possible number
+          var min = Infinity,
+          max = -Infinity;
+
+          map.eachLayer(function (layer) {
+        //get the attribute value
+        if (layer.feature) {
+        var attributeValue = Number(layer.feature.properties[attribute]);
+
+        //test for min
+        if (attributeValue < min) {
+           min = attributeValue;
+        }
+
+        //test for max
+        if (attributeValue > max) {
+        max = attributeValue;
+        }
+     }
+    });
+
+    //set mean
+    var mean = (max + min) / 2;
+
+    //return values as an object
+    return {
+        max: max,
+        mean: mean,
+        min: min,
+       };
+    }
+    
     function updateLegend(attribute) {
     //create content for legend
         var year = attribute.split("_")[1];
