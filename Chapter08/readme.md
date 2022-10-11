@@ -3,7 +3,7 @@
 Chapter 8: D3 Foundations
 ========================
 
-Welcome to the first of four chapters in Unit 3 on D3, a powerful JavaScript library supporting coordination across many different kinds of map and visualization types. Chapter 8 includes three relatively longer lessons and ends with Activity 8 requiring you to compile a multivariate dataset for your Unit 3 D3 map.
+Welcome to the first of four chapters in Unit 3 on D3, a powerful JavaScript library supporting coordination across many different kinds of map and visualization types. 
 
 *   In Lesson 1, we investigate selections and blocks, the code structures that provide the backbone of D3 script.
 *   In Lesson 2, we expand on D3 selections to make data joins that transform geospatial data into DOM elements.
@@ -856,9 +856,8 @@ With these adjustments made, we have a complete, readable data graphic (Figure 3
 
 1.  Create a _unit-3_ web directory.
 2.  Create a bubble chart based on the dataset in the tutorial.
-3.  Find and format the dataset for the Unit 3 D3 map.
-4.  Zip a copy of your _unit-3_ folder and upload it to Canvas. The folder should include the `index.html`, `main.js` in the `js`folder, `style.css` in the `css` folder and _D3_ library in your `lib` folder.
-5. **Optional:** Commit the changes to your _unit-3_ directory and sync with GitHub. Include "Activity 8" in the commit message (Summary). 
+3.  Zip a copy of your _unit-3_ folder and upload it to Canvas. The folder should include the `index.html`, `main.js` in the `js`folder, `style.css` in the `css` folder and _D3_ library in your `lib` folder.
+4. **Optional:** Commit the changes to your _unit-3_ directory and sync with GitHub. Include "Activity 8" in the commit message (Summary). 
 
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
